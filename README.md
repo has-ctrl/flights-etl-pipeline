@@ -22,7 +22,7 @@ You can either run the project locally or in the cloud. I will give instructions
    ```
 3. Install the dependencies using `pip`.
    ```sh
-  pip install -r requirements.txt
+   pip install -r requirements.txt
    ```
 4. Get [Schiphol Flight API Keys](https://developer.schiphol.nl/] "Schiphol Flight API Keys") and enter keys in `.secret/api_creds.json`.
 
@@ -30,7 +30,7 @@ You can either run the project locally or in the cloud. I will give instructions
 
 6. Run the `test.py` script and view resulting `.csv` file in your S3 bucket.
    ```sh
-  python test.py
+   python test.py
    ```
 
 ### Cloud Installation
@@ -49,8 +49,9 @@ You can either run the project locally or in the cloud. I will give instructions
    ```
 4. Install the dependencies using `pip`.
    ```sh
-  pip install -r requirements.txt
+   pip install -r requirements.txt
    ```
+  
 5. Get [Schiphol Flight API Keys](https://developer.schiphol.nl/] "Schiphol Flight API Keys") and enter keys in `.secret/api_creds.json`.
 
 6. Create [AWS account](https://aws.amazon.com/account/ "AWS account") and enter API keys and S3 bucket_url in `.secret/aws_creds.json`.
@@ -58,6 +59,6 @@ You can either run the project locally or in the cloud. I will give instructions
 7. Edit the `airflow.cfg` config file by changing the dags_folder to `/home/ubuntu/airflow/flights-etl-pipeline` and setting `enable_xcom_pickling = True`.
 8. Run Airflow and copy username and password from the logged output.
    ```sh
-  airflow standalone
+   airflow standalone
    ```
 9. Optionally trigger the scheduler manually by logging into Airflow Console using the Public IPv4 DNS in your web-browser (e.g. `ec2-X-XX-XX-XX.eu-central-1.compute.amazonaws.com:8080/`) after opening port 8080 on your machine. 
