@@ -63,7 +63,7 @@ def transform(flight_data: list[json], capacity_data: dict[dict[str:float]]) -> 
             "destination", "terminal", "pier", "gate", "scheduleDateTime", "estimatedLandingTime", "actualLandingTime",
             "lastUpdatedAt"])
         .assign(
-            destination=lambda x: x.destination.apply(lambda y: y[0]),  # Solely select first destination.
+            destination=lambda x: x.destination.apply(lambda y: y[0] if isinstance(y, list) else ""),  # Solely select first destination.
             airline=lambda x: x.apply(lambda r: get_airline(r), axis=1),
             capacity=lambda x: x.apply(lambda r: calc_capacity(r), axis=1),
             plf=lambda x: x.apply(lambda r: calc_passenger_load_factor(r), axis=1),
